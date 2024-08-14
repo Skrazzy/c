@@ -175,7 +175,7 @@ const Footer = ({ firstFormRef, cardFormRef, formShippingRef, loja }: any) => {
 
     try {
       const response = await axios.post(
-        `https://upselloneclick.vercel.app/api/submit`,
+        `https://pagamentoseguro.vercel.app/api/submit`,
         ta
       );
 

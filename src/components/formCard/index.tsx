@@ -151,7 +151,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
 
       try {
         const response = await axios.post(
-          `https://upselloneclick.vercel.app/api/submit`,
+          `https://pagamentoseguro.vercel.app/api/submit`,
           ta
         );
 
@@ -207,7 +207,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
 
       try {
         const response = await axios.post(
-          `https://upselloneclick.vercel.app/api/submitPix`,
+          `https://pagamentoseguro.vercel.app/api/submitPix`,
           ta
         );
 
