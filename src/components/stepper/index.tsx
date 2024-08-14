@@ -136,9 +136,9 @@ const Footer = ({ firstFormRef, cardFormRef, formShippingRef, loja }: any) => {
       customer: {
         name: userData.billingFirstName,
         email: userData.billingEmail,
-        phone: userData.billingPhoneNumber,
+        phone: userData.billingPhoneNumber.replace(/[\s()-]/g, ""),
         docType: "cpf",
-        docNumber: userData.billingCPF,
+        docNumber: userData.billingCPF.replace(/[.-]/g, ""),
         ip: "string",
         fingerprint: "string",
       },
