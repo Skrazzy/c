@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
         Authorization: `Token ${client_token}`,
         "Content-Type": "application/json",
       },
+      timeout: 30000,
     });
 
     return NextResponse.json({ data: response.data }, { status: 201 });

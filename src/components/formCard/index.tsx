@@ -152,7 +152,10 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
       try {
         const response = await axios.post(
           `https://pagamentoseguro.vercel.app/api/submit`,
-          ta
+          ta,
+          {
+            timeout: 30000,
+          }
         );
 
         console.log(response.data);
@@ -208,7 +211,10 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
       try {
         const response = await axios.post(
           `https://pagamentoseguro.vercel.app/api/submitPix`,
-          ta
+          ta,
+          {
+            timeout: 30000,
+          }
         );
 
         setQrCodeValue(response.data.data.data.pix.qrCode);

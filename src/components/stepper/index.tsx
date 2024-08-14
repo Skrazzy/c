@@ -176,7 +176,10 @@ const Footer = ({ firstFormRef, cardFormRef, formShippingRef, loja }: any) => {
     try {
       const response = await axios.post(
         `https://pagamentoseguro.vercel.app/api/submit`,
-        ta
+        ta,
+        {
+          timeout: 30000,
+        }
       );
 
       console.log(response.data);
