@@ -114,11 +114,12 @@ const OfertaPage = ({ params }: { params: { product: string } }) => {
 
   const handleClick = () => {
     submitApi(product);
+    router.replace("/concluido");
   };
 
   const handleClick2 = () => {
     submitApi(product);
-    router.replace("/");
+    router.replace(loja + "/checkout");
   };
 
   return (

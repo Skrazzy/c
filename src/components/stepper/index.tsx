@@ -192,12 +192,14 @@ const Footer = ({ firstFormRef, cardFormRef, formShippingRef, loja }: any) => {
 
   const handleNotOffert = (product: any) => {
     submitApi(product);
-    router.replace("/product/" + products[1].id);
+    router.replace(loja + "/product/" + products[1].id);
   };
 
-  const handleGetOffert = (product: any) => {
+  const handleGetOffert = async (product: any) => {
     setLoading(true);
-    submitApi(product);
+
+    await submitApi(product);
+    router.replace("/concluido");
   };
 
   return (
