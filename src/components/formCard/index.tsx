@@ -95,6 +95,8 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
     const [showQRCodeCard, setShowQRCodeCard] = useState(false);
     const [copy, setCopy] = useState(false);
 
+    const [recused, setRecused] = useState(false);
+
     if (!product || !productOffer) return null;
 
     const submitApi = async (data: FormData) => {
@@ -158,7 +160,10 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
           }
         );
 
-        console.log(response.data);
+        if (response.data.data.data.status == "declined") {
+          setRecused(true);
+        }
+
         setLoading(false);
         nextStep();
       } catch (error) {
@@ -241,6 +246,10 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
     const handleOpenChange = () => {
       setCopy(false);
       setShowQRCodeCard(!showQRCodeCard);
+    };
+
+    const handleOpenRecusedChange = () => {
+      setRecused(false);
     };
 
     const handleTab = (value: string) => {
@@ -562,6 +571,35 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
                   })}
                 </span>
               </p>
+            </DialogContent>
+          </Dialog>
+        )}
+
+        {recused && (
+          <Dialog open={recused} onOpenChange={handleOpenRecusedChange}>
+            <DialogContent className="center-col font-poppins rounded-lg py-10 shadow-lg">
+              <div className="w-full border-solid px-4 py-2 border-[1px] border-transparent border-b-gray-200 text-center">
+                <h1 className="font-bold">Pagamento recusado</h1>
+              </div>
+              <p className="text-sm text-center mt-2">
+                Infelizmente o pagamento por cartão o foi recusado. Tente
+                novamente com outro cartão o ou escolha a opção de pagamento via
+                Pix.
+              </p>
+              <div className="flex justify-center mt-6">
+                <Button
+                  onClick={handleOpenRecusedChange}
+                  className="w-[48%] h-full bg-[#1FBB70] !rounded-[3px] font-[900] tracking-wider right-5"
+                >
+                  Pagar com Pix
+                </Button>
+                <Button
+                  onClick={handleOpenRecusedChange}
+                  className="w-[48%] h-full bg-[#1FBB70] !rounded-[3px] font-[900] tracking-wider left-5"
+                >
+                  Tentar com outro cartão
+                </Button>
+              </div>
             </DialogContent>
           </Dialog>
         )}

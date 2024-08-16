@@ -7,7 +7,7 @@ const OffertAdd: React.FC<{ data: any; onClick: any; onClickRemove: any }> = ({
   onClickRemove,
 }) => {
   return (
-    <div className="center app_sm:center-col pb-4 app_sm:h-auto relative text-text gap-2 bg-[#292929] p-3 h-[200px] border-[2px] transition-all cursor-pointer upsell border-dashed pt-7 border-main_segundary col-span-2 !justify-start bg-formbackground mt-3 rounded-[8px] w-[96%]">
+    <div className="center app_sm:center-col pb-4 app_sm:h-auto relative text-text gap-2 bg-[#292929] p-3 h-[260px] border-[2px] transition-all cursor-pointer upsell border-dashed pt-7 border-main_segundary col-span-2 !justify-start bg-formbackground mt-3 rounded-[8px] w-[96%]">
       <img
         src={data.image}
         alt="Product"
