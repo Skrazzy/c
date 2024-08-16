@@ -23,6 +23,7 @@ import { Button } from "../ui/button";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useParams } from "next/navigation";
+import SelectField from "../selectField";
 
 const schema = z.object({
   cardNumber: z
@@ -37,12 +38,16 @@ const schema = z.object({
   securityCode: z
     .string({ message: "Insira o código de segurança" })
     .min(1, { message: "Código de segurança é obrigatório" }),
+  par: z
+    .string({ message: "Selecione a parcela" })
+    .min(1, { message: "Parcela é obrigatório" }),
 });
 
 type FormData = z.infer<typeof schema>;
 
 const defaultValues: FormData = {
   cardNumber: "",
+  par: "1",
   cardHolderName: "",
   expiryDate: "",
   securityCode: "",
@@ -122,7 +127,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
         },
         address: {
           country: shipData.billingCountry,
-          state: shipData.billingState,
+          state: shipData.par,
           city: shipData.billingCity,
           zipcode: shipData.billingPostalCode,
           street: shipData.billingAddress,
@@ -138,6 +143,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
             externalRef: "188390",
           },
         ],
+        installments: +data.par,
         expiresInDays: 3,
         card: {
           externalToken: "token",
@@ -148,7 +154,6 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
           cvv: data.securityCode,
         },
         paymentMethod: "credit_card",
-        installments: 1,
       };
 
       try {
@@ -477,6 +482,97 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
                 placeholder="01/22"
                 className="app_sm:col-span-2"
                 validationSchema={schema.shape.expiryDate}
+              />
+              <SelectField
+                name="par"
+                label="Parcele em"
+                options={[
+                  {
+                    value: "1",
+                    label: `1x de ${(total / 1).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "2",
+                    label: `2x de ${(total / 2).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "3",
+                    label: `3x de ${(total / 3).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "4",
+                    label: `4x de ${(total / 4).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "5",
+                    label: `5x de ${(total / 5).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "6",
+                    label: `6x de ${(total / 6).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "7",
+                    label: `7x de ${(total / 7).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "8",
+                    label: `8x de ${(total / 8).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "9",
+                    label: `9x de ${(total / 9).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "10",
+                    label: `10x de ${(total / 10).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "11",
+                    label: `11x de ${(total / 11).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                  {
+                    value: "12",
+                    label: `12x de ${(total / 12).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}`,
+                  },
+                ]}
+                validationSchema={schema.shape.par}
               />
               <InputField
                 name="securityCode"

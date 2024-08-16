@@ -54,7 +54,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
         render={({ field }) => (
           <>
             <label
-              className="label text-text opacity-90 mb-1 text-[13px]"
+              className="label text-[#000] font-bold opacity-100 mb-1 text-[13px]"
               htmlFor={name}
             >
               {label}
