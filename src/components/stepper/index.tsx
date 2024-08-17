@@ -55,7 +55,7 @@ const StepperComponent = ({ loja }: any) => {
           <h2>Fazendo Pagamento</h2>
         </div>
       )}
-      <Stepper className="p-2" initialStep={2} steps={steps} responsive={false}>
+      <Stepper className="p-2" initialStep={0} steps={steps} responsive={false}>
         <Step label="Dados">
           <FormComponent onSubmitSuccess={handleNextStep} ref={formRef} />
         </Step>
