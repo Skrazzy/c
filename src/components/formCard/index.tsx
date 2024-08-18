@@ -167,6 +167,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
 
         if (response.data.data.data.status === "declined") {
           setRecused(true);
+          setLoading(false);
           return;
         }
 
@@ -175,6 +176,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
           "Pagamento recusado, por favor tente novamente com outro cartão ou meio de pagamento"
         ) {
           setRecused(true);
+          setLoading(false);
           return;
         }
 
