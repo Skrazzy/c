@@ -693,7 +693,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
                 novamente com outro cartão o ou escolha a opção de pagamento via
                 Pix.
               </p>
-              <div className="flex justify-center mt-6">
+              <div className="flex justify-center mt-6 space-x-2">
                 <Button
                   onClick={handleOpenRecusedChange}
                   className="w-[48%] h-full bg-[#1FBB70] !rounded-[3px] font-[900] tracking-wider right-5"
