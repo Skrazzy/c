@@ -228,21 +228,18 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
         paymentMethod: "pix",
       };
 
-      try {
-        const response = await axios.post(
-          `https://pagamentoseguro.vercel.app/api/submitPix`,
-          ta,
-          {
-            timeout: 30000,
-          }
-        );
+      const response = await axios.post(
+        `https://pagamentoseguro.vercel.app/api/submitPix`,
+        ta,
+        {
+          timeout: 30000,
+        }
+      );
 
-        console.log(response.data);
-        setQrCodeValue(response.data.data.data.pix.qrCode);
-        setShowQRCodeCard(true);
-      } catch (error) {
-        console.error("Error fetching search results:", error);
-      }
+      console.log(response.data);
+
+      setQrCodeValue(response.data.data.data.pix.qrCode);
+      setShowQRCodeCard(true);
     };
 
     const handleSave = (data: any) => {
