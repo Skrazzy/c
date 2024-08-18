@@ -216,7 +216,6 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
           complement: "Casa",
           number: 123,
         },
-
         items: [
           {
             title: product.name,
@@ -238,6 +237,7 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
           }
         );
 
+        console.log(response.data);
         setQrCodeValue(response.data.data.data.pix.qrCode);
         setShowQRCodeCard(true);
       } catch (error) {
