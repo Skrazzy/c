@@ -686,22 +686,16 @@ const CardForm = forwardRef<HTMLFormElement, CardFormPropsWithRef>(
                 <h1 className="font-bold">Pagamento recusado</h1>
               </div>
               <p className="text-sm text-center mt-2">
-                Infelizmente o pagamento por cartão o foi recusado. Tente
-                novamente com outro cartão o ou escolha a opção de pagamento via
+                Infelizmente o pagamento por cartão foi recusado. Tente
+                novamente com outro cartão ou escolha a opção de pagamento via
                 Pix.
               </p>
               <div className="flex justify-center mt-6 space-x-2">
                 <Button
                   onClick={handleOpenRecusedChange}
-                  className="w-[48%] h-full bg-[#1FBB70] !rounded-[3px] font-[900] tracking-wider right-5"
-                >
-                  Pagar com Pix
-                </Button>
-                <Button
-                  onClick={handleOpenRecusedChange}
                   className="w-[48%] h-full bg-[#1FBB70] !rounded-[3px] font-[900] tracking-wider left-5"
                 >
-                  Tentar com outro cartão
+                  Tentar Novamente
                 </Button>
               </div>
             </DialogContent>
