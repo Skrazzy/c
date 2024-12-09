@@ -19,12 +19,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC_u3-dtchGrrTyKWMy5zpSTC2_Anh0gTs",
-  authDomain: "checkout-59398.firebaseapp.com",
-  projectId: "checkout-59398",
-  storageBucket: "checkout-59398.appspot.com",
-  messagingSenderId: "117638816087",
-  appId: "1:117638816087:web:c8976001c3cf770089de12",
+  apiKey: "AIzaSyB9dlsH6LxeBs-3HCiFrWGTTQ8GMauUtjU",
+  authDomain: "pagamentosmp-aa8bd.firebaseapp.com",
+  projectId: "pagamentosmp-aa8bd",
+  storageBucket: "pagamentosmp-aa8bd.firebasestorage.app",
+  messagingSenderId: "323014655632",
+  appId: "1:323014655632:web:4e07b764021f0128a4a215",
 };
 
 const app = initializeApp(firebaseConfig);
